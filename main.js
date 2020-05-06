@@ -37,7 +37,16 @@ class IpAddress {
  * @return {string} (firstIpAddress) - An IPv4 address.
  * @return {object} (ipObject) - object that contains ipv4 and mapped ipv6 address
  */
-getFirstIpAddress(cidrStr, callback) {
+
+/**
+ * Calculate and return the first host IP address from a CIDR subnet.
+ * @param {string} cidrStr - The IPv4 subnet expressed
+ *                 in CIDR format.
+ * @param {callback} callback - A callback function.
+ * @return {string} (firstIpAddress) - An IPv4 address.
+ * @return {object} (ipObject) - object that contains ipv4 and mapped ipv6 address
+ */
+ getFirstIpAddress(cidrStr, callback) {
 
   // Initialize return arguments for callback
   let firstIpAddress = null;
@@ -52,6 +61,7 @@ getFirstIpAddress(cidrStr, callback) {
     from: 1,
     limit: 1
   };
+
   // Use the object's isValid() method to verify the passed CIDR.
   if (!cidr.isValid()) {
     // If the passed CIDR is invalid, set an error message.
@@ -77,7 +87,8 @@ getFirstIpAddress(cidrStr, callback) {
   // data as the second argument to the callback function.
   return callback(ipObject, callbackError);
 }
+
     log.info('Starting the IpAddress product.');
-  }
+}  
 }
 module.exports = new IpAddress;
