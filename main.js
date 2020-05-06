@@ -46,6 +46,8 @@ class IpAddress {
  * @return {string} (firstIpAddress) - An IPv4 address.
  * @return {object} (ipObject) - object that contains ipv4 and mapped ipv6 address
  */
+  log.info('Starting the IpAddress product.');
+  }
  getFirstIpAddress(cidrStr, callback) {
 
   // Initialize return arguments for callback
@@ -86,9 +88,7 @@ class IpAddress {
   // The IAP convention is to pass returned data as the first argument and error
   // data as the second argument to the callback function.
   return callback(ipObject, callbackError);
-}
-
-    log.info('Starting the IpAddress product.');
-}  
+ }
+  
 }
 module.exports = new IpAddress;
